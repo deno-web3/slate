@@ -4,7 +4,7 @@ Unofficial [Slate](https://slate.host) API client for Deno. <img align="right" s
 
 ## Example
 
-```sh
+```ts
 import { Slate } from 'https://deno.land/x/slate/mod.ts'
 
 const slate = new Slate({ apiKey: 'X-X-X' })
