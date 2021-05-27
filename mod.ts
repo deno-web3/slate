@@ -1,3 +1,4 @@
+import { contentType } from 'https://deno.land/x/media_types@v2.8.4/mod.ts'
 declare namespace slate {
   export interface Collection {
     id: string
@@ -41,10 +42,9 @@ declare namespace slate {
 const request = async (url: string, apiKey: string, opts?: RequestInit) => {
   const res = await fetch(`https://slate.host/api/v2/${url}`, {
     method: 'POST',
-    headers: {
+    headers: opts?.headers || {
       'Content-Type': 'application/json',
-      Authorization: `Basic ${apiKey}`,
-      ...opts?.headers
+      Authorization: `Basic ${apiKey}`
     },
     ...opts
   })
@@ -183,10 +183,42 @@ export class Slate {
 
     return { file }
   }
+
+  /**
+   * This API endpoint uploads a file to root or a collection.
+   * @param filename filename
+   * @param collection collection ID
+   */
+  async uploadFile(
+    filename: string,
+    collection?: string
+  ): Promise<{
+    id: string
+    filename: string
+    createdAt: Date
+    data?: any
+    cid: string
+    name: string
+    type: string
+    size: number
+  }> {
+    const form = new FormData()
+    const fileContent = await Deno.readFile(filename)
+
+    const blob = new Blob([fileContent], { type: contentType(filename) })
+
+    form.append('file', blob)
+
+    const res = await fetch(`https://uploads.slate.host/api/public${`/${collection}` || ''}`, {
+      method: 'POST',
+      body: form,
+      headers: {
+        Authorization: `Basic ${this.#apiKey}`
+      }
+    })
+
+    const { data } = await res.json()
+
+    return data
+  }
 }
-
-const s = new Slate({ apiKey: 'SLAd7101872-a44f-4057-b851-953e92d45820TE' })
-
-// console.log(await s.getUserData())
-
-console.log(JSON.stringify(await s.getCollection('e5fbc094-f772-4c83-bca1-c3810c2c62a8')))
