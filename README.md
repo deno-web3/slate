@@ -2,7 +2,7 @@
 
 [![][docs-badge]][docs]
 
-Unofficial [Slate](https://slate.host) API client for Deno. <img align="right" src="logo.png" />
+Unofficial [Slate](https://slate.host) API client for Deno, an open source Filecoin-based storage system. <img align="right" src="logo.png" />
 
 ## Example
 
