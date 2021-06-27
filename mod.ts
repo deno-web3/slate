@@ -1,4 +1,4 @@
-import { contentType } from 'https://deno.land/x/media_types@v2.8.4/mod.ts'
+import { contentType } from 'https://deno.land/x/media_types@v2.9.0/mod.ts'
 declare namespace slate {
   export interface Collection {
     id: string
