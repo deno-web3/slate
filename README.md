@@ -16,5 +16,5 @@ const { collections } = await slate.getUserData()
 const { filename } = await slate.uploadFile('logo.png')
 ```
 
-[docs-badge]: https://img.shields.io/github/v/release/deno-web3/slate?color=yellow&label=Docs&logo=deno&style=flat-square
+[docs-badge]: https://img.shields.io/github/v/release/deno-web3/slate?color=yellow&label=Docs&logo=deno&style=flat-square&a
 [docs]: https://doc.deno.land/https/deno.land/x/slate/mod.ts
