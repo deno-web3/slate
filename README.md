@@ -2,6 +2,10 @@
 
 [![][docs-badge]][docs]
 
+> I'm building [Flash](https://flash-dev.vercel.app) - a service to deploy websites and apps on the new decentralized stack.
+>
+> If you'd like to try or collab, [dm](https://t.me/v_1rtl) or [email](mailto:yo@v1rtl.site)
+
 Unofficial Deno API client for [Slate](https://slate.host), an open source Filecoin-based storage system. <img align="right" src="logo.png" />
 
 ## Example
